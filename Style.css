@@ -1,28 +1,23 @@
-.pokedex {
-    display: inline-block;
-    position: relative;
-    max-width: 100%;
-    max-height: 100%;
-}
-.pokemon {
-    display: inline-block;
-    position: relative;
-    max-width: 100%;
-    max-height: 100%;
+
+body {
     
+    background-image: url(https://get.wallhere.com/photo/1920x1200-px-nature-pokemon-1004643.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 40%;
+    width: 99vw;
+    height: 98vh;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.Gastly {
-    position: absolute;
-    width: 20%;
-    height: auto;
-    left: 1%;
-    top: -1%;
-    
+.base{
+    transform: rotate(180deg); 
 }
-.nome {
-    position: absolute;
-    font-size: 30px;
-    left: 22.2%;
-    top: 13.2%;
-    font-style: ;
+main{
+    background-color: black;
+    width: 1000px;
+    height: 1000px;
 }
