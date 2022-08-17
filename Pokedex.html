@@ -11,8 +11,22 @@
     <header>
     </header>
     <main>
-        <img class="topo" src="Base.png" alt="Topo">
-        <img class="base" src="Base.png" alt="Base">
+        <div class="dex">
+            <img class="topo" src="Base.png" alt="Topo">
+            <div id="fundo">
+                <img id="pokemon" src="ampharos.gif" alt="poke">
+            </div>
+            <img class="base" src="Base.png" alt="Base">
+            <button id="abrirDex">o</button>
+            <script> abrirDex.addEventListener("click", function () {
+                    fundo.style.animation = "changeSizeBackground 0.5s forwards";
+                    abrirDex.style.display = 'none';
+                    pokemon.style.display = 'block';
+                    
+                });
+            </script>
+        </div>
+
     </main>
     <footer>
     </footer>
