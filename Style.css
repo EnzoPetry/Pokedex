@@ -59,14 +59,20 @@ body {
 }
 
 #texto {
+    display: none;
     width: 70%;
     float: left;
     align-items: right;
+    text-align: right;
+    padding-bottom: 120px;
+    padding-right:30px ;
 }
 .nome {
     align-items: right;
-    
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0px 10px;
+    border: solid black;
+    border-radius: 50px;
+    font-family: monospace;
     font-size: 25px;
     background-color: aliceblue;
 }
