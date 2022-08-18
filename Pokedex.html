@@ -14,16 +14,43 @@
         <div class="dex">
             <img class="topo" src="Base.png" alt="Topo">
             <div id="fundo">
-                <img id="pokemon" src="ampharos.gif" alt="poke">
+                <div id="pokemon">
+                    <img class="poke" alt="poke">
+                </div>
+                <div id="texto">
+                    <span class="nome"> </span>
+                    <p></p>
+                </div>
             </div>
             <img class="base" src="Base.png" alt="Base">
             <button id="abrirDex">o</button>
             <script> abrirDex.addEventListener("click", function () {
                     fundo.style.animation = "changeSizeBackground 0.5s forwards";
                     abrirDex.style.display = 'none';
-                    pokemon.style.display = 'block';
-                    
+                    setTimeout(function () {
+                        pokemon.style.animation = "aparecePoke 1s forwards";
+                        pokemon.style.display = "block";
+                    }, 1000);
                 });
+            </script>
+            <script>
+
+                const pokemonName =  document.querySelector('.nome');
+                const pokemonNumber =  document.querySelector('.numero');
+                const pokemonImg = document.querySelector('.poke')
+                
+                const fetchPokemon = async (pokemon) => {
+                    const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+                        const data = await APIResponse.json();
+                        return data;
+                }
+                const renderPokemon = async (pokemon) => {
+                    const data = await fetchPokemon(pokemon);
+                    console.log(data);
+                    pokemonName.innerHTML = data.id + " " + data.name;
+                    pokemonImg.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+                }
+                renderPokemon('2')
             </script>
         </div>
 
