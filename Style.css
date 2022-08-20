@@ -49,6 +49,9 @@ body {
     margin-top: 23%;
     margin-left: 58%;
 }
+#setaE:hover,#setaD:hover{
+    cursor: pointer;
+}
 
 #abrirDex {
     position: absolute;
