@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
 
     background-image: url(https://get.wallhere.com/photo/1920x1200-px-nature-pokemon-1004643.jpg);
@@ -126,4 +127,134 @@ body {
     100% {
         opacity: 1;
     }
+=======
+body {
+
+    background-image: url(https://get.wallhere.com/photo/1920x1200-px-nature-pokemon-1004643.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 40%;
+    width: 99vw;
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.base {
+    transform: rotate(180deg);
+}
+
+.dex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#setaE {
+    display: block;
+    position: absolute;
+    padding: 20px;
+    box-shadow: 4px -4px 0 1px rgba(0, 115, 150, 0.651) inset;
+    border: solid transparent;
+    border-width: 0 0 2px 2px;
+    background-color: transparent;
+    transform: rotate(45deg);
+    margin-top: 23%;
+    margin-left: 37%;
+}
+
+#setaD {
+    display: block;
+    position: absolute;
+    padding: 20px;
+    box-shadow: 4px -4px 0 1px rgba(0, 115, 150, 0.651) inset;
+    border: solid transparent;
+    border-width: 0 0 2px 2px;
+    background-color: transparent;
+    transform: rotate(225deg);
+    margin-top: 23%;
+    margin-left: 58%;
+}
+#setaE:hover,#setaD:hover{
+    cursor: pointer;
+}
+
+#abrirDex {
+    position: absolute;
+    align-items: center;
+    font-size: 200px;
+    margin: 0px;
+    padding: 0px;
+    opacity: 0;
+
+}
+
+#fundo {
+    position: relative;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(180deg, rgba(113, 255, 249, 1) 0%, rgba(113, 255, 249, 0.5469538157059699) 50%, rgba(113, 255, 249, 1) 100%);
+    border-left: 5px groove;
+    border-right: 5px ridge;
+    width: 580px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#pokemon {
+    display: none;
+    text-align: center;
+    width: 30%;
+}
+
+#pokemon img {
+    width: 75%;
+}
+
+#texto {
+    display: none;
+    width: 70%;
+    float: left;
+    align-items: right;
+    text-align: right;
+    padding-bottom: 160px;
+    padding-right: 30px;
+}
+
+.nome {
+    align-items: right;
+    box-shadow: 7px 7px 0 0 rgba(27, 27, 27, 0.664);
+    border: solid rgba(9, 123, 138, 0.658);
+    padding: 0px 10px;
+    font-family: monospace;
+    font-size: 25px;
+    background-color: aliceblue;
+}
+
+
+@keyframes changeSizeBackground {
+    0% {
+        height: 0px;
+    }
+
+    100% {
+        height: 260px;
+    }
+}
+
+@keyframes aparecePoke {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+>>>>>>> f1b8f388ff6d80c9a8f17d56594554734b26b1c8
 }
