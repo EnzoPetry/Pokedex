@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<style type="text/css">
+	.pkm, .hitbox {
+		width: 50px;
+		height: 50px;
+	}
+
+	.hitbox {
+		background-color: grey;
+		position: absolute;
+	}
+
+	.pkm:hover {
+		cursor: pointer;
+	}
+
+	.mirror {
+		-moz-transform: scale(-1, 1);
+		-webkit-transform: scale(-1, 1);
+		transform: scale(-1, 1);
+	}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+				// $(".result").append("<p>Nome: " + data.name.charAt(0).toUpperCase() + data.name.slice(1) + "</p>");
+
+				$.get("https://pokeapi.co/api/v2/pokemon/133", function(data) {
+					let pkm = {f: null, b: null, n: null};
+					let dir = 1;
+
+					pkm.f = data.sprites.versions["generation-v"]["black-white"]["animated"]["front_default"];
+					pkm.b = data.sprites.versions["generation-v"]["black-white"]["animated"]["back_default"];
+					pkm.n = data.name;
+
+					let umbreon = {f: null, b: null, n: null};
+
+					$(".nome").html(pkm.n.charAt(0).toUpperCase() + pkm.n.substring(1))
+
+					$.get("https://pokeapi.co/api/v2/pokemon/197", function(data) {
+						umbreon.f = data.sprites.versions["generation-v"]["black-white"]["animated"]["front_default"];
+						umbreon.b = data.sprites.versions["generation-v"]["black-white"]["animated"]["back_default"];
+						umbreon.n = data.name;
+					});
+
+					$(document).on("keydown", (k) => {
+						$('.pkm').prop('style').removeProperty('transform');
+
+						switch (k.key.toUpperCase()) {
+							case 'ArrowRight':
+							case 'D':
+							$(".pkm").attr("src", pkm.f)
+							$(".hitbox").css("left", (($(".hitbox").first().position().left) + 15) + "px")
+							$(".pkm").addClass("mirror")
+							dir = 1
+							break;
+
+							case 'ArrowLeft':
+							case 'A':
+							$(".pkm").attr("src", pkm.f)
+							$(".hitbox").css("left", (($(".hitbox").first().position().left) - 15) + "px")
+							$(".pkm").removeClass("mirror")
+
+							dir = 2
+							break;
+
+							case 'S':
+							$(".pkm").attr("src", pkm.f)
+							$(".hitbox").css("top", (($(".hitbox").first().position().top) + 15) + "px")
+							$(".pkm").removeClass("mirror")
+							break;
+
+							case 'W':
+							$(".pkm").attr("src", pkm.b)
+							$(".hitbox").css("top", (($(".hitbox").first().position().top) - 15) + "px")
+							$(".pkm").removeClass("mirror")
+							break;
+
+							case 'E':
+							let curY = $(".hitbox").first().position().top;
+							let curX = $(".hitbox").first().position().left;
+
+							if (dir == 1) {
+								$(".hitbox").animate({
+									top: '-=50px',
+									left: (curX + 75) + 'px',
+								});
+
+								animateRotate(360)
+
+								$(".hitbox").animate({
+									top: '+=50px',
+									left: (curX + 150) + 'px'
+								});
+							}
+
+							if (dir == 2) {
+								$(".hitbox").animate({
+									top: '-=50px',
+									left: '-=' + (75) + 'px',
+								});
+
+								animateRotate(360)
+
+								$(".hitbox").animate({
+									top: '+=50px',
+									left: '-=' + (75) + 'px'
+								});
+							}
+
+							break;
+
+							case 'Q':
+							pkm = umbreon
+							$(".pkm").attr("src", pkm.f)
+							$(".nome").html(pkm.n.charAt(0).toUpperCase() + pkm.n.substring(1))
+							break;
+						}
+					})
+				});	
+			})
+
+
+	function animateRotate(angle) {
+		    // caching the object for performance reasons
+		    var $elem = $('.hitbox');
+
+		    // let start = dir == 1 ? 360 : 0;
+
+		    // we use a pseudo object for the animation
+		    // (starts from `0` to `angle`), you can name it as you want
+		    $({deg: 0}).animate({deg: angle}, {
+		    	duration: 850,
+		    	step: function(now) {
+		    		// now = dir == 1 ? -360 : 360;
+		    		// console.log(now + ' ' + start)
+		            // in the step-callback (that is fired each step of the animation),
+		            // you can use the `now` paramter which contains the current
+		            // animation-position (`0` up to `angle`)
+		            $elem.css({
+		            	transform: 'rotate(' + now + 'deg)',
+		            });
+		        }
+		    });
+		}
+	</script>
+
+	<div class="container">
+		<div class="result">
+			<div class="hitbox">
+				<img src="" class="pkm">
+			</div>
+			<p class="nome"></p>
+		</div>
+	</div>
+</body>
+</html>
