@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body {
 
     background-image: url(https://get.wallhere.com/photo/1920x1200-px-nature-pokemon-1004643.jpg);
@@ -127,7 +126,7 @@ body {
     100% {
         opacity: 1;
     }
-=======
+}
 body {
 
     background-image: url(https://get.wallhere.com/photo/1920x1200-px-nature-pokemon-1004643.jpg);
@@ -142,7 +141,6 @@ body {
     align-items: center;
 
 }
-
 .base {
     transform: rotate(180deg);
 }
@@ -256,5 +254,4 @@ body {
     100% {
         opacity: 1;
     }
->>>>>>> f1b8f388ff6d80c9a8f17d56594554734b26b1c8
 }

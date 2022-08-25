@@ -48,19 +48,25 @@
                 var pokem = 1;
                 const pokemonName = document.querySelector('.nome');
                 const pokemonNumber = document.querySelector('.numero');
-                const pokemonImg = document.querySelector('.poke')
+                const pokemonImg = document.querySelector('.poke');
+                const pokemonDesc = document.querySelector('.descricao');
 
                 const fetchPokemon = async (pokemon) => {
                     const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-                    const APIDescription = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon}`)
                     const data = await APIResponse.json();
-                    const descrip = await APIDescription.json();
                     return data;
+                }
+
+                const fetchDescription = async (pokemon) => {
+                    const APIDescription = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon}`)
+                    const descrip = await APIDescription.json();
                     return descrip;
                 }
                 const renderPokemon = async (pokemon) => {
                     const data = await fetchPokemon(pokemon);
+                    const descrip = await fetchDescription(pokemon)
                     console.log(data);
+                    console.log(descrip);
                     if (data.id < 10) {
                         pokemonName.innerHTML = "00" + data.id + " " + data.name;
                     } else if (data.id < 100) {
@@ -68,7 +74,7 @@
                     } else {
                         pokemonName.innerHTML = data.id + " " + data.name;
                     }
-                    pokemonDesc.innerHTML = data.description
+                    pokemonDesc.innerHTML = descrip.flavor_text_entries[40].flavor_text;
                     pokemonImg.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
                 }
                 renderPokemon(pokem)
