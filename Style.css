@@ -93,7 +93,7 @@ body {
     float: left;
     align-items: right;
     text-align: right;
-    padding-bottom: 160px;
+    margin-bottom: 30px;
     padding-right: 30px;
 }
 
@@ -109,6 +109,16 @@ body {
 .descricao {
     position: absolute;
     display: block;
+    align-items: right;
+    box-shadow: 7px 7px 0 0 rgba(27, 27, 27, 0.664);
+    border: solid rgba(9, 123, 138, 0.658);
+    padding: 10px;
+    margin-top: 3%;
+    margin-left: 18%;
+    margin-right: 2%;
+    font-family: monospace;
+    font-size: 17px;
+    background-color: aliceblue;
     
 }
 
@@ -166,8 +176,8 @@ body {
     border-width: 0 0 2px 2px;
     background-color: transparent;
     transform: rotate(45deg);
-    margin-top: 23%;
-    margin-left: 37%;
+    margin-top: 30%;
+    margin-left: 5%;
 }
 
 #setaD {
@@ -179,8 +189,8 @@ body {
     border-width: 0 0 2px 2px;
     background-color: transparent;
     transform: rotate(225deg);
-    margin-top: 23%;
-    margin-left: 58%;
+    margin-top: 30%;
+    margin-left: 13%;
 }
 #setaE:hover,#setaD:hover{
     cursor: pointer;
@@ -214,10 +224,25 @@ body {
     display: none;
     text-align: center;
     width: 30%;
+    margin-bottom: 12%;
+    margin-left: 5%;
+}
+#hitbox {
+    position: relative;
+    height: 175px;
+    width: 175px;
 }
 
-#pokemon img {
-    width: 75%;
+.poke {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+   
 }
 
 #texto {
